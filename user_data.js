@@ -1,4 +1,3 @@
-
 // Funktion för att spåra händelse i Google Tag Manager
 function trackEvent(eventName, eventData = {}) {
   window.dataLayer = window.dataLayer || [];
@@ -53,4 +52,3 @@ function toggleFlag() {
 // Lägg till händelselyssnare för knappen
 var flagButton = document.getElementById('flagButton');
 flagButton.addEventListener('click', toggleFlag);
-
