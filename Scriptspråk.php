@@ -2,7 +2,6 @@
 <html lang="en">
 <head>
   <?php include("gtm-head.php"); ?>
-
   <meta charset="UTF-8 " />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Uppgift</title>
@@ -13,7 +12,6 @@
   <meta name="author" content="Jennifer Jansson" />
     <link rel="stylesheet" href="mystyle.css"> <!-- Länka till din gemensamma CSS-fil -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css">
-
     <script
       src="https://kit.fontawesome.com/557f0061bb.js"
       crossorigin="anonymous"
@@ -23,32 +21,7 @@
 <?php include("cookie-popup.php"); ?>
 <?php include("body-gtm.php"); ?>
 <?php include("header.php"); ?>
-
-<script>
-    function getCountryCode() {
-      return new Promise((resolve, reject) => {
-        fetch('https://ipapi.co/json/')
-          .then(response => response.json())
-          .then(data => {
-            resolve(data.country_code);
-          })
-          .catch(error => {
-            reject(error);
-          });
-      });
-    }
-
-    // Visa landskoden direkt när sidan laddas
-    getCountryCode().then(countryCode => {
-      console.log(`Användarens landskod: ${countryCode}`);
-      // Här kan du fortsätta med vad du vill göra med landskoden
-    }).catch(error => {
-      console.error('Det uppstod ett fel:', error);
-    });
-  </script>
-
-
-
+<script src="geolocation.js"></script>
 
   <div class="col">
   <center>
@@ -61,7 +34,6 @@
 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias, architecto ducimus! Vel vero maxime explicabo accusamus? Mollitia accusantium dignissimos quos cum at atque, veritatis reprehenderit blanditiis, reiciendis vitae quis commodi expedita, est rerum quidem autem aliquam. Laboriosam similique, id natus quam accusantium obcaecati vero sint debitis aut voluptatibus quo autem animi soluta hic odio odit quisquam illum voluptas totam qui nesciunt magnam error! Suscipit eos quo harum adipisci veritatis quaerat odit laboriosam ducimus, vel placeat sapiente perferendis aliquid, odio optio? Aperiam, molestias non exercitationem accusantium obcaecati cumque deserunt qui possimus odit quas quia fuga recusandae rem amet omnis quo necessitatibus odio est laudantium voluptates. Dicta similique vero ut libero neque ipsa quasi et veritatis, ducimus cum architecto recusandae asperiores vitae voluptate. Tempora asperiores quam, corporis ad voluptatibus officia illo eos expedita id? Iusto ex tenetur inventore, temporibus, fugit quos amet officiis sapiente ratione adipisci, nisi molestias? Veniam harum ipsa inventore totam repudiandae officia cum vitae, accusamus ab quibusdam dolores, incidunt consequuntur sed. Sed eaque delectus aut animi provident, incidunt velit optio beatae totam perspiciatis fugit modi blanditiis labore molestiae quaerat asperiores distinctio sequi sunt aspernatur id qui autem alias. Sit eveniet reiciendis ullam dolorem quaerat, nemo doloribus earum distinctio corrupti.</p>
 <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quidem ea illum quaerat, fuga minima quod exercitationem facilis esse incidunt, ipsam iure sunt ab maiores voluptates debitis saepe eveniet hic deserunt?</p>
 </div>
-
 
 <form id="trackedForm">
     <input type="text" name="formInput" placeholder="Skriv här">
@@ -88,7 +60,6 @@
   <center>
   <button id="flagButton" class="cta-button">Visa min flagga</button>
   <div id="flagContainer" class="flag-icon"></div>
-
 </center>
 <br>
 
@@ -98,7 +69,6 @@
 <button class="cta-button"  id="buttonA">Knapp A</button>
 </center>
     <br>
-
 <center>
 <button class="cta-button"  id="buttonB">Knapp B</button>
   <br>
@@ -110,6 +80,7 @@
   <li><a href="Scriptspråk">En länk att klicka på</a></li>
   <br>
   <br>
+  
 <script>
   // Add event listeners for all elements with class cta-button
   document.querySelectorAll('.cta-button').forEach(function(button) {
@@ -127,21 +98,13 @@
 </script>
 
 
-
-
   <script src="form.js"></script>
   <script src="click_bild.js"></script>
   <script src="button_track.js"></script>
   <script src="user_data.js"></script>
   <script src="device.js"></script>
   <script src="scrolling.js"></script>
-
   <script src="loopisar.js"></script>
   <script src="link.js"></script>
-  <!-- <script src="app.js"></script> -->
-
-
-
-
 </body>
 </html>
