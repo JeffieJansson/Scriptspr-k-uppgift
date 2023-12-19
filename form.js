@@ -6,16 +6,7 @@ function saveInteraction(type, details) {
   localStorage.setItem(type, JSON.stringify(details));
 }
 
-// Track form submissions
-document.addEventListener('submit', function(event) {
-  if (event.target.tagName.toLowerCase() === 'form') {
-      // Push an event to dataLayer when a form is submitted
-      dataLayer.push({
-          'event': 'form_submit'
-          // Add any other data attributes for form submissions if needed
-      });
-  }
-});
+
 
 // Event listener for tracked form submissions
 document.getElementById('trackedForm').addEventListener('submit', function(event) {
