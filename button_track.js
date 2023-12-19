@@ -36,12 +36,12 @@ document.getElementById('button3').addEventListener('click', function() {
 });
 
 document.getElementById('buttonA').addEventListener('click', function() {
-  saveClickEvent('button3');
+  saveClickEvent('buttonA');
   // Call other functions or perform other actions on button click here
 });
 
 document.getElementById('buttonB').addEventListener('click', function() {
-  saveClickEvent('button3');
+  saveClickEvent('buttonB');
   // Call other functions or perform other actions on button click here
 });
 
@@ -49,9 +49,29 @@ document.getElementById('buttonB').addEventListener('click', function() {
 // Function to log click data in the console
 function logClickData() {
   console.log('Click Data:', clickData);
+
+  // Function to find the most clicked button
+  function findMostClickedButton() {
+    let mostClickedButton = null;
+    let maxClicks = 0;
+
+    for (const buttonId in clickData) {
+      if (clickData[buttonId] > maxClicks) {
+        maxClicks = clickData[buttonId];
+        mostClickedButton = buttonId;
+      }
+    }
+
+    return mostClickedButton;
+  }
+
+  // Find the most clicked button
+  const mostClicked = findMostClickedButton();
+  console.log('Most Clicked Button:', mostClicked);
+  // Sparar `mostClicked` variabeln eller dess data på ett sätt som passar dina behov för senare analys eller rapportering
 }
 
-// Example of logging click data when the page loads
+// Example of logging click data and finding the most clicked button when the page loads
 window.onload = function() {
   logClickData();
 };
