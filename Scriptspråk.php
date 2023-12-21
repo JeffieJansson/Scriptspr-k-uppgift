@@ -5,7 +5,7 @@
 
   <meta charset="UTF-8 " />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Uppgift</title>
+  <title>Scriptspråk</title>
   <meta name="description" content="sida med memes." />
   <meta name="keywords" content="webbdesign, sida med memes, SEO" />
   <meta name="robots" content="index, follow" />
@@ -18,16 +18,13 @@
       src="https://kit.fontawesome.com/557f0061bb.js"
       crossorigin="anonymous"
     ></script>
+
 </head>
 <body>
 <?php include("cookie-popup.php"); ?>
 <?php include("body-gtm.php"); ?>
 <?php include("header.php"); ?>
 <script src="geolocation.js"></script>
-
-
-
-
 
 
   <div class="col">
@@ -45,7 +42,7 @@
 
 <form id="trackedForm">
     <input type="text" name="formInput" placeholder="Skriv här">
-    <button type="submit">Skicka</button>
+    <button type="submit" id="formbutton">Skicka</button>
   </form>
   <br>
   <br>
@@ -73,54 +70,29 @@
 <br>
 
 
-<center>
-    <!-- Knappar för att utlösa händelser -->
-<button class="cta-button"  id="buttonA">Knapp A</button>
-</center>
-    <br>
-
-<center>
-<button class="cta-button"  id="buttonB">Knapp B</button>
-  <br>
-  </center>
+  
 </div>
 <br>
 <br>
 <br>
-  <li><a href="Scriptspråk">En länk att klicka på</a></li>
+<a href="#" id="link1">Länk för att komma högst upp på sidan</a>
+
   <br>
   <br>
-<script>
-  // Add event listeners for all elements with class cta-button
-  document.querySelectorAll('.cta-button').forEach(function(button) {
-    button.addEventListener('click', function() {
-      // Get the text or any specific identifier of the clicked button
-      const buttonText = button.textContent;
-      
-      // Push an event to dataLayer on button click
-      dataLayer.push({
-        'event': 'custom_button_click',
-        'button_text': buttonText // You can change this to any identifier you want
-      });
-    });
-  });
-</script>
 
 
-
-
+  <script src="user_data.js"></script>
   <script src="form.js"></script>
   <script src="click_bild.js"></script>
   <script src="button_track.js"></script>
-  <script src="user_data.js"></script>
   <script src="device.js"></script>
   <script src="scrolling.js"></script>
-
-  <script src="loopisar.js"></script>
+  <!-- <script src="loopisar.js"></script> -->
   <script src="link.js"></script>
-  <!-- <script src="app.js"></script> -->
 
 
+
+  <script src="remove.js"></script>
 
 
 </body>
