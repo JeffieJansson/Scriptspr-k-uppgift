@@ -26,15 +26,13 @@ function toggleFlag() {
 
 
 
-
           // Spåra landskoden till GTM
           trackEvent('country_code_detected', { 'country_code': countryCode });
         }).catch(error => {
           console.error('Det uppstod ett fel:', error);
         });
 
-    // Logga användarens lokala tid
-    console.log(`Användarens lokala tid: ${new Date().toLocaleString()}`);
+
 
     flagButton.textContent = 'Dölj flagga';
 
