@@ -1,77 +1,80 @@
+
+
 // Retrieve click data from localStorage if available, otherwise create a new object
 let clickData = localStorage.getItem('clickData') ? JSON.parse(localStorage.getItem('clickData')) : {};
 
+// Function to log clicked button
+function logClickedButton(element) {
+  if (element.tagName.toLowerCase() === 'button') {
+    const buttonId = element.id || 'no_id';
+    console.log(`Clicked on button with ID: ${buttonId}`);
+  }
+}
 
 // Function to save click event and update click data
-function saveClickEvent(elementId) {
+function saveClickEvent(element) {
+  let elementId;
+
+  // Check the element type and assign a specific identifier
+  if (element.tagName.toLowerCase() === 'button') {
+    elementId = 'button_' + (element.id || 'no_id');
+  } else if (element.tagName.toLowerCase() === 'img') {
+    elementId = 'image_' + (element.id || 'no_id');
+  } else if (element.tagName.toLowerCase() === 'a') {
+    elementId = 'link_' + (element.href || 'no_href');
+  } else {
+    elementId = 'other_' + (element.tagName.toLowerCase() || 'no_tag');
+  }
+
+  // Update click data based on the identified element
   if (!clickData[elementId]) {
     clickData[elementId] = 1;
   } else {
     clickData[elementId]++;
   }
-  localStorage.setItem('clickData', JSON.stringify(clickData)); // Spara uppdaterade klickdata till localStorage
-  
-  // Skicka klickhändelse till Google Tag Manager
+  localStorage.setItem('clickData', JSON.stringify(clickData)); // Save updated click data to localStorage
+
+  // Send click event to Google Tag Manager with information about the clicked element
   window.dataLayer = window.dataLayer || [];
   window.dataLayer.push({
-    'event': 'button_click', // Ange händelsenamnet för GTM
-    'clicked_button': 'click_' + elementId // Skicka knappens identitet som en anpassad variabel
+    'event': 'element_click', // Set the event name for GTM
+    'clicked_element': elementId // Send the clicked element's identity as a custom variable
   });
 }
 
-// Event listeners for buttons
-document.getElementById('button1').addEventListener('click', function() {
-  saveClickEvent('button1');
-  // Call other functions or perform other actions on button click here
-});
+// Event listener for all clicks on the page
+document.addEventListener('click', function(event) {
+  logClickedButton(event.target); // Log the clicked button
 
-document.getElementById('button2').addEventListener('click', function() {
-  saveClickEvent('button2');
-  // Call other functions or perform other actions on button click here
+  saveClickEvent(event.target); // Save the clicked element
 });
-
-document.getElementById('button3').addEventListener('click', function() {
-  saveClickEvent('button3');
-  // Call other functions or perform other actions on button click here
-});
-
-document.getElementById('buttonA').addEventListener('click', function() {
-  saveClickEvent('buttonA');
-  // Call other functions or perform other actions on button click here
-});
-
-document.getElementById('buttonB').addEventListener('click', function() {
-  saveClickEvent('buttonB');
-  // Call other functions or perform other actions on button click here
-});
-
 
 // Function to log click data in the console
 function logClickData() {
   console.log('Click Data:', clickData);
 
-  // Function to find the most clicked button
-  function findMostClickedButton() {
-    let mostClickedButton = null;
+  // Function to find the most clicked element
+  function findMostClickedElement() {
+    let mostClickedElement = null;
     let maxClicks = 0;
 
-    for (const buttonId in clickData) {
-      if (clickData[buttonId] > maxClicks) {
-        maxClicks = clickData[buttonId];
-        mostClickedButton = buttonId;
+    for (const elementId in clickData) {
+      if (clickData[elementId] > maxClicks) {
+        maxClicks = clickData[elementId];
+        mostClickedElement = elementId;
       }
     }
 
-    return mostClickedButton;
+    return mostClickedElement;
   }
 
-  // Find the most clicked button
-  const mostClicked = findMostClickedButton();
-  console.log('Most Clicked Button:', mostClicked);
-  // Sparar `mostClicked` variabeln eller dess data på ett sätt som passar dina behov för senare analys eller rapportering
+  // Find the most clicked element
+  const mostClicked = findMostClickedElement();
+  console.log('Most Clicked Element:', mostClicked);
+  // Save `mostClicked` variable or its data in a way that suits your needs for further analysis or reporting
 }
 
-// Example of logging click data and finding the most clicked button when the page loads
+// Log click data and find the most clicked element when the page loads
 window.onload = function() {
   logClickData();
 };
