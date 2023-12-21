@@ -1,3 +1,6 @@
+// Logga användarens lokala tid när sidan har laddats
+
+
 function getCountryCode() {
   return new Promise((resolve, reject) => {
     fetch('https://ipapi.co/json/')
@@ -58,6 +61,12 @@ function trackGeolocationAndCountryCodeOnPageLoad() {
   const userLanguage = getUserLanguage();
   console.log(`Användarens språk: ${userLanguage}`);
   trackEvent('user_language_detected', { 'user_language': userLanguage });
+
+  // Logga användarens lokala tid när sidan har laddats
+  const localTime = new Date().toLocaleString();
+  console.log(`Användarens lokala tid: ${localTime}`);
 }
+
+
 
 trackGeolocationAndCountryCodeOnPageLoad();
