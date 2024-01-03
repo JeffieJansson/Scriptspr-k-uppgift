@@ -43,8 +43,7 @@ function toggleFlag() {
     flagButton.textContent = 'Visa flagga';
   }
 
-  // Spåra händelse i Google Tag Manager
-  // Exempel: window.dataLayer.push({ event: 'flag_displayed' });
+
 }
 
 // Lägg till händelselyssnare för knappen
