@@ -18,6 +18,9 @@
       src="https://kit.fontawesome.com/557f0061bb.js"
       crossorigin="anonymous"
     ></script>
+       <script src="loopisar.js"></script>
+
+
 
 </head>
 <body>
@@ -85,9 +88,9 @@
   <script src="form.js"></script>
   <script src="click_bild.js"></script>
   <script src="button_track.js"></script>
+  <script src="flagbutton.js"></script>
   <script src="device.js"></script>
   <script src="scrolling.js"></script>
-  <!-- <script src="loopisar.js"></script> -->
   <script src="link.js"></script>
 
 
