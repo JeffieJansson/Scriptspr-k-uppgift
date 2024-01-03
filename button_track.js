@@ -1,5 +1,3 @@
-
-
 // Retrieve click data from localStorage if available, otherwise create a new object
 let clickData = localStorage.getItem('clickData') ? JSON.parse(localStorage.getItem('clickData')) : {};
 
@@ -72,6 +70,21 @@ function logClickData() {
   const mostClicked = findMostClickedElement();
   console.log('Most Clicked Element:', mostClicked);
   // Save `mostClicked` variable or its data in a way that suits your needs for further analysis or reporting
+
+  // Loop through clickData and apply conditions
+  for (const elementId in clickData) {
+    if (clickData[elementId] > 70) {
+      console.log(`Element with ID ${elementId} has been clicked more than 70 times wohoo.`);
+      // Performing an action based on this condition
+    }
+  }
+
+  Object.entries(clickData).forEach(([elementId, clickCount]) => {
+    if (clickCount < 50) {
+      console.log(`Element with ID ${elementId} has been clicked less than 50 times Bohoo.`);
+      // Performing an action based on this condition
+    }
+  });
 }
 
 // Log click data and find the most clicked element when the page loads
