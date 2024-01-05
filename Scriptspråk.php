@@ -88,7 +88,6 @@
   <script src="form.js"></script>
   <script src="click_bild.js"></script>
   <script src="button_track.js"></script>
-  <script src="flagbutton.js"></script>
   <script src="device.js"></script>
   <script src="scrolling.js"></script>
   <script src="link.js"></script>
